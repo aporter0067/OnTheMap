@@ -13,6 +13,10 @@
 		70A2190124BFD0E800D53ECE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70A218FF24BFD0E800D53ECE /* Main.storyboard */; };
 		70A2190324BFD0EB00D53ECE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70A2190224BFD0EB00D53ECE /* Assets.xcassets */; };
 		70A2190624BFD0EB00D53ECE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70A2190424BFD0EB00D53ECE /* LaunchScreen.storyboard */; };
+		70A2199824C67E8200D53ECE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A2199724C67E8200D53ECE /* MapViewController.swift */; };
+		70A2199A24C67F3000D53ECE /* PersonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A2199924C67F3000D53ECE /* PersonListViewController.swift */; };
+		70A2199D24C692E000D53ECE /* UdacityAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A2199C24C692E000D53ECE /* UdacityAPI.swift */; };
+		70A219A024C9181900D53ECE /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A2199F24C9181900D53ECE /* LoginRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		70A2190224BFD0EB00D53ECE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70A2190524BFD0EB00D53ECE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		70A2190724BFD0EB00D53ECE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70A2199724C67E8200D53ECE /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		70A2199924C67F3000D53ECE /* PersonListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListViewController.swift; sourceTree = "<group>"; };
+		70A2199C24C692E000D53ECE /* UdacityAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityAPI.swift; sourceTree = "<group>"; };
+		70A2199F24C9181900D53ECE /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +78,8 @@
 		70A2199324BFD43B00D53ECE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				70A2199E24C9180000D53ECE /* Udacity Request */,
+				70A2199B24C692BB00D53ECE /* Udacity API */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -85,6 +95,8 @@
 			isa = PBXGroup;
 			children = (
 				70A218FD24BFD0E800D53ECE /* LoginViewController.swift */,
+				70A2199924C67F3000D53ECE /* PersonListViewController.swift */,
+				70A2199724C67E8200D53ECE /* MapViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -97,6 +109,22 @@
 				70A2190424BFD0EB00D53ECE /* LaunchScreen.storyboard */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		70A2199B24C692BB00D53ECE /* Udacity API */ = {
+			isa = PBXGroup;
+			children = (
+				70A2199C24C692E000D53ECE /* UdacityAPI.swift */,
+			);
+			path = "Udacity API";
+			sourceTree = "<group>";
+		};
+		70A2199E24C9180000D53ECE /* Udacity Request */ = {
+			isa = PBXGroup;
+			children = (
+				70A2199F24C9181900D53ECE /* LoginRequest.swift */,
+			);
+			path = "Udacity Request";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,7 +200,11 @@
 			files = (
 				70A218FE24BFD0E800D53ECE /* LoginViewController.swift in Sources */,
 				70A218FA24BFD0E800D53ECE /* AppDelegate.swift in Sources */,
+				70A2199D24C692E000D53ECE /* UdacityAPI.swift in Sources */,
+				70A2199A24C67F3000D53ECE /* PersonListViewController.swift in Sources */,
 				70A218FC24BFD0E800D53ECE /* SceneDelegate.swift in Sources */,
+				70A219A024C9181900D53ECE /* LoginRequest.swift in Sources */,
+				70A2199824C67E8200D53ECE /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
