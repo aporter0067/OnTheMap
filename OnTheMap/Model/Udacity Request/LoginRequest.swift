@@ -7,8 +7,8 @@
 //
 
 import Foundation
+
 struct LoginRequest: Codable {
-    let udacity: String
     let username: String
     let password: String
 }

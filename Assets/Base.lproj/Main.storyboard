@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -15,8 +15,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo-u" translatesAutoresizingMaskIntoConstraints="NO" id="ARH-lV-dU6">
-                                <rect key="frame" x="91" y="44" width="232" height="120"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-u" translatesAutoresizingMaskIntoConstraints="NO" id="ARH-lV-dU6">
+                                <rect key="frame" x="62" y="44" width="296" height="168"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="MLC-d9-UOi">
                                 <rect key="frame" x="86" y="247.5" width="243.5" height="411"/>
@@ -30,7 +30,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wXn-1g-jL0">
                                         <rect key="frame" x="0.0" y="88.5" width="243.5" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="gVl-Er-3jW"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="gVl-Er-3jW"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -38,7 +38,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f7i-zW-eRo">
                                         <rect key="frame" x="0.0" y="190.5" width="243.5" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="4Nr-B5-YeK"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="4Nr-B5-YeK"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -48,7 +48,7 @@
                                         <state key="normal" title="Login"/>
                                         <connections>
                                             <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r0e-NZ-NJU"/>
-                                            <segue destination="3DJ-dZ-D8L" kind="presentation" id="ZJy-rD-v9X"/>
+                                            <segue destination="3DJ-dZ-D8L" kind="presentation" identifier="completeLogin" id="ZJy-rD-v9X"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account? Sign Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5a-CA-gWB">
@@ -72,13 +72,13 @@
                             <constraint firstItem="ORK-J2-ndD" firstAttribute="top" secondItem="MLC-d9-UOi" secondAttribute="bottom" constant="100" id="1pF-N7-GTc"/>
                             <constraint firstItem="ARH-lV-dU6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="8Dn-HM-yMd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MLC-d9-UOi" secondAttribute="trailing" constant="84.5" id="8gP-kC-Jnc"/>
-                            <constraint firstItem="ARH-lV-dU6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="91" id="Gun-ri-x7G"/>
+                            <constraint firstItem="ARH-lV-dU6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="62" id="Gun-ri-x7G"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ORK-J2-ndD" secondAttribute="bottom" constant="73.5" id="Mn4-Ya-A0b"/>
                             <constraint firstItem="MLC-d9-UOi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="86" id="fJD-D2-7cl"/>
                             <constraint firstItem="MLC-d9-UOi" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="jxR-dQ-u6U"/>
-                            <constraint firstItem="MLC-d9-UOi" firstAttribute="top" secondItem="ARH-lV-dU6" secondAttribute="bottom" constant="141.5" id="o81-Db-PYG"/>
+                            <constraint firstItem="MLC-d9-UOi" firstAttribute="top" secondItem="ARH-lV-dU6" secondAttribute="bottom" constant="35.5" id="o81-Db-PYG"/>
                             <constraint firstItem="ORK-J2-ndD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="137" id="pVk-XY-AEp"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ARH-lV-dU6" secondAttribute="trailing" constant="91" id="rOE-Vv-0JC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ARH-lV-dU6" secondAttribute="trailing" constant="56" id="rOE-Vv-0JC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ORK-J2-ndD" secondAttribute="trailing" constant="136" id="ynR-nm-5Pd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -91,7 +91,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4722" y="-154"/>
+            <point key="canvasLocation" x="-4723.188405797102" y="-154.01785714285714"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="1fc-Be-FbJ">

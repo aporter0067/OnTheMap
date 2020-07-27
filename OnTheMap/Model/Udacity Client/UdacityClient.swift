@@ -1,5 +1,5 @@
 //
-//  UdacityAPI.swift
+//  UdacityClient.swift
 //  OnTheMap
 //
 //  Created by Adam Porter on 7/20/20.
@@ -8,7 +8,19 @@
 
 import Foundation
 
-class UdacityAPI {
+class UdacityClient {
+    
+    static var accountKey: String = ""
+    static var objectId: String = ""
+    static var uniqueKey: String = ""
+    static var firstName: String = ""
+    static var lastName: String = ""
+    static var mapString: String = ""
+    static var mediaURL: String = ""
+    static var latitude: Double = 0.0
+    static var longitude: Double = 0.0
+    static var createdAt: String = ""
+    static var updatedAt: String = ""
     
     struct Auth {
         static var userId = ""
@@ -16,15 +28,21 @@ class UdacityAPI {
     
     enum Endpoints {
         
-        static let base = "https://onthemap-api.udacity.com"
+        static let udacitySessionURL = "https://onthemap-api.udacity.com/v1/session"
+        static let udacityUserInfoURL = "https://onthemap-api.udacity.com/v1/users/"
+        static let studentLocationURL = "https://onthemap-api.udacity.com/v1/StudentLocation"
         
-        case createSessionId
-        case userInfo
+        case login
+        case logout
+        
         
         var stringValue: String {
             switch self {
-            case .createSessionId: return Endpoints.base + "/v1/session"
-            case .userInfo: return Endpoints.base + "/v1/users/\(Auth.userId)"
+            
+            case .login:
+                return Endpoints.udacitySessionURL
+            case .logout:
+                return Endpoints.udacitySessionURL
             }
         }
         
@@ -34,10 +52,10 @@ class UdacityAPI {
         
     }
   
-    //MARK: POST Requests
-    class func createSessionId(completion: @escaping (Bool, Error?) -> Void) {
+    //MARK: Login
+    class func createSessionId(_ email: String,_ password: String, completion: @escaping (Bool, Error?) ->()) {
         
-        var request = URLRequest(url: Endpoints.createSessionId.url)
+        var request = URLRequest(url: Endpoints.login.url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -49,9 +67,27 @@ class UdacityAPI {
               return
           }
             
-        let range = 5..<data!.count
-          let newData = data?.subdata(in: range) /* subset response data! */
-          print(String(data: newData!, encoding: .utf8)!)
+            guard let data = data else {
+                completion(false, error)
+                return
+            }
+           
+            let range = 5..<data.count
+            let newData = data.subdata(in: range) /* subset response data! */
+            print(String(data: newData, encoding: .utf8)!)
+            
+            do {
+                let decoder = JSONDecoder()
+                let responseObject = try decoder.decode(LoginResponse.self, from: newData)
+                let accountId = responseObject.account.key
+                self.accountKey = accountId!
+                DispatchQueue.main.async {
+                    completion(true, error)
+                }
+            } catch {
+                completion(false, error)
+            }
+    
         }
         task.resume()
     }
@@ -76,10 +112,10 @@ class UdacityAPI {
         
     }
     
-    //MARK: DELETE Request
+    //MARK: Logout
     class func deleteUserInfo(completion: (Bool, Error?) ->Void) {
        
-        var request = URLRequest(url: Endpoints.createSessionId.url)
+        var request = URLRequest(url: Endpoints.logout.url)
         request.httpMethod = "DELETE"
         var xsrfCookie: HTTPCookie? = nil
         let sharedCookieStorage = HTTPCookieStorage.shared

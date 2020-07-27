@@ -19,10 +19,25 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func loginButton(_ sender: Any) {
+        UdacityClient.createSessionId(self.emailTextField.text ?? "", self.passwordTextField.text ?? "")
+        { (success: Bool, error: Error?) in
+            
+            if success {
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "completeLogin", sender: nil)
+                }
+            }
+        }
     }
     
     
     @IBAction func loginViaFacebook(_ sender: Any) {
+        
     }
+    
+    
+    
+    
+    
 }
 
