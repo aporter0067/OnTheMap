@@ -34,7 +34,7 @@
 		7013B69C24D5AD1D00F3FDC8 /* InputLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputLocationViewController.swift; sourceTree = "<group>"; };
 		7013B69E24D5AD3400F3FDC8 /* SubmitLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitLocationViewController.swift; sourceTree = "<group>"; };
 		7013B6A024D5B45200F3FDC8 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
-		70A218F624BFD0E800D53ECE /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		70A218F624BFD0E800D53ECE /* OnTheMapv2v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMapv2v2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70A218F924BFD0E800D53ECE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70A218FB24BFD0E800D53ECE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		70A218FD24BFD0E800D53ECE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -71,7 +71,7 @@
 		70A218F724BFD0E800D53ECE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				70A218F624BFD0E800D53ECE /* OnTheMap.app */,
+				70A218F624BFD0E800D53ECE /* OnTheMapv2v2.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -151,9 +151,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		70A218F524BFD0E800D53ECE /* OnTheMap */ = {
+		70A218F524BFD0E800D53ECE /* OnTheMapv2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 70A2190A24BFD0EB00D53ECE /* Build configuration list for PBXNativeTarget "OnTheMap" */;
+			buildConfigurationList = 70A2190A24BFD0EB00D53ECE /* Build configuration list for PBXNativeTarget "OnTheMapv2" */;
 			buildPhases = (
 				70A218F224BFD0E800D53ECE /* Sources */,
 				70A218F324BFD0E800D53ECE /* Frameworks */,
@@ -163,9 +163,9 @@
 			);
 			dependencies = (
 			);
-			name = OnTheMap;
+			name = OnTheMapv2;
 			productName = OnTheMap;
-			productReference = 70A218F624BFD0E800D53ECE /* OnTheMap.app */;
+			productReference = 70A218F624BFD0E800D53ECE /* OnTheMapv2v2.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -183,7 +183,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 70A218F124BFD0E800D53ECE /* Build configuration list for PBXProject "OnTheMap" */;
+			buildConfigurationList = 70A218F124BFD0E800D53ECE /* Build configuration list for PBXProject "OnTheMapv2" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -196,7 +196,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				70A218F524BFD0E800D53ECE /* OnTheMap */,
+				70A218F524BFD0E800D53ECE /* OnTheMapv2 */,
 			);
 		};
 /* End PBXProject section */
@@ -382,8 +382,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.udacity.OnTheMap;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.udacity.OnTheMapv2;
+				PRODUCT_NAME = OnTheMapv2v2;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -399,8 +399,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.udacity.OnTheMap;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.udacity.OnTheMapv2;
+				PRODUCT_NAME = OnTheMapv2v2;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -409,7 +409,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		70A218F124BFD0E800D53ECE /* Build configuration list for PBXProject "OnTheMap" */ = {
+		70A218F124BFD0E800D53ECE /* Build configuration list for PBXProject "OnTheMapv2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				70A2190824BFD0EB00D53ECE /* Debug */,
@@ -418,7 +418,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		70A2190A24BFD0EB00D53ECE /* Build configuration list for PBXNativeTarget "OnTheMap" */ = {
+		70A2190A24BFD0EB00D53ECE /* Build configuration list for PBXNativeTarget "OnTheMapv2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				70A2190B24BFD0EB00D53ECE /* Debug */,
