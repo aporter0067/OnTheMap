@@ -34,7 +34,8 @@ class UdacityClient {
         
         case login
         case logout
-        
+        case getUserInfo
+        case getStudentLocation
         
         var stringValue: String {
             switch self {
@@ -43,6 +44,10 @@ class UdacityClient {
                 return Endpoints.udacitySessionURL
             case .logout:
                 return Endpoints.udacitySessionURL
+            case .getUserInfo:
+                return Endpoints.udacityUserInfoURL + "\(Auth.userId)"
+            case .getStudentLocation:
+                return Endpoints.studentLocationURL + "?order=-updatedAt"
             }
         }
         
@@ -60,7 +65,7 @@ class UdacityClient {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         // encoding a JSON body from a string, can also use a Codable struct
-        request.httpBody = "{\"udacity\": {\"username\": \"account@domain.com\", \"password\": \"********\"}}".data(using: .utf8)
+        request.httpBody = "{\"udacity\": {\"username\": \"\(email)\", \"password\": \"\(password)\"}}".data(using: .utf8)
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
           if error != nil {
@@ -92,26 +97,6 @@ class UdacityClient {
         task.resume()
     }
     
-    
-    //MARK: GET Requests
-    class func userInfo(completion: @escaping (Bool, Error?) ->Void) {
-        
-        let request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/users/3903878747")!)
-        let session = URLSession.shared
-        let task = session.dataTask(with: request) { data, response, error in
-          if error != nil { // Handle error...
-              return
-          }
-          let range = 5..<data!.count
-          let newData = data?.subdata(in: range) /* subset response data! */
-          print(String(data: newData!, encoding: .utf8)!)
-        }
-        task.resume()
-        
-        
-        
-    }
-    
     //MARK: Logout
     class func deleteUserInfo(completion: (Bool, Error?) ->Void) {
        
@@ -137,6 +122,125 @@ class UdacityClient {
         task.resume()
         
     }
+    
+    
+    //MARK: GET Student Location
+    class func getStudentLocation(completion: @escaping ([StudentLocation]?, Error?) ->Void?) {
+        
+        
+        var request = URLRequest(url: Endpoints.getStudentLocation.url)
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { data, response, error in
+          
+            if error != nil { // Handle error...
+              return
+          }
+            
+            guard let data = data else {
+                completion(nil, error)
+                return
+            }
+            
+            
+          print(String(data: data, encoding: .utf8)!)
+            
+            do {
+                let decoder = JSONDecoder()
+                let responseObject = try decoder.decode(StudentLocationResponse.self, from: data)
+                DispatchQueue.main.async {
+                    completion(responseObject.results, nil)
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    //MARK: POST Student Location
+    class func postStudentLocation(completion: @escaping (Bool, Error?) ->Void) {
+        
+        var request = URLRequest(url: Endpoints.getStudentLocation.url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"John\", \"lastName\": \"Doe\",\"mapString\": \"Mountain View, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.386052, \"longitude\": -122.083851}".data(using: .utf8)
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { data, response, error in
+          if error != nil { // Handle error…
+              return
+          }
+          print(String(data: data!, encoding: .utf8)!)
+        }
+        task.resume()
+        
+    }
+    
+    
+    //MARK: User Info
+    class func getUserInfo(student: UserInfo, completion: @escaping (Bool, Error?) ->Void) {
+        
+        let request = URLRequest(url: Endpoints.getUserInfo.url)
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { data, response, error in
+          
+            if error != nil { // Handle error...
+              return
+            }
+            
+                guard let data = data else {
+                    completion(false, error)
+                    return
+                }
+          let range = 5..<data.count
+          let newData = data.subdata(in: range) /* subset response data! */
+          print(String(data: newData, encoding: .utf8)!)
+            
+            do {
+                let decoder = JSONDecoder()
+                let responseObject = try decoder.decode(UserInfo.self, from: newData)
+                firstName = responseObject.firstName
+                lastName = responseObject.lastName
+                print(responseObject)
+                DispatchQueue.main.async {
+                    completion(true, error)
+                }
+                
+            } catch {
+                completion(false, error)
+            }
+            
+        }
+        task.resume()
+        
+        
+        
+    }
+    
+    //MARK: Update Student Location
+    
+    class func updateStudentLocation(completion: @escaping (Bool, Error?) ->Void) {
+        
+        let urlString = "https://onthemap-api.udacity.com/v1/StudentLocation/8ZExGR5uX8"
+        let url = URL(string: urlString)
+        var request = URLRequest(url: url!)
+        request.httpMethod = "PUT"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody =
+            "{\"uniqueKey\": \"1234\", \"firstName\": \"John\", \"lastName\": \"Doe\",\"mapString\": \"Cupertino, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.322998, \"longitude\": -122.032182}".data(using: .utf8)
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { data, response, error in
+          if error != nil { // Handle error…
+              return
+          }
+          print(String(data: data!, encoding: .utf8)!)
+        }
+        task.resume()
+        
+    }
+    
+    
     
     
 }
