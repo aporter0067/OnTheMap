@@ -12,13 +12,33 @@ import MapKit
 class MapViewController: UIViewController, MKMapViewDelegate {
     
     
+    @IBOutlet weak var mapView: MKMapView!
+
+    
+    var annotations = [MKPointAnnotation]()
     
     override func viewDidLoad() {
+        
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-   
     
+    
+    
+    
+    
+    @IBAction func addPin(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "completeAddPinSegue", sender: nil)
+    }
+    
+    
+    
+    
+    @IBAction func refreshButton(_ sender: Any) {
+    }
     
     
 }
+
