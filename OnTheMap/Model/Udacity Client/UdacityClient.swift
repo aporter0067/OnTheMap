@@ -160,7 +160,7 @@ class UdacityClient {
     }
     
     //MARK: POST Student Location
-    class func postStudentLocation(completion: @escaping (Bool, Error?) ->Void) {
+    class func postStudentLocation(student: StudentInfo, completion: @escaping (Bool, Error?) ->Void) {
         
         var request = URLRequest(url: Endpoints.getStudentLocation.url)
         request.httpMethod = "POST"
